@@ -1,0 +1,194 @@
+{
+  "kind": "build_request",
+  "title": "Suvarna Collection saree catalog app with WhatsApp ordering",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create an Android-first, lightweight, beginner-friendly mobile web app UI for the saree business named “Suvarna Collection”, including a Home screen that shows the business name and an English tagline.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Business name: Suvarna Collection",
+          "- Home screen with business name and tagline",
+          "Platform: Android first",
+          "Make the app beginner-friendly and lightweight."
+        ]
+      },
+      "acceptanceCriteria": [
+        "On mobile widths, the Home screen loads quickly and clearly shows “Suvarna Collection” and a tagline in English",
+        "Layout uses mobile-first spacing, readable font sizes, and large tap targets",
+        "Navigation to the other sections is obvious and usable with one hand"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a Saree Catalog screen that lists products with: image, name, price, fabric, and occasion, and supports opening a Product Details view (or an expanded card) for each product.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "- Saree catalog with image, name, price, fabric, occasion"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Catalog displays at least a small seeded set of products containing all required fields (image, name, price, fabric, occasion)",
+        "Each product can be opened to view its details without losing the ability to return to the catalog",
+        "Images are displayed with consistent aspect ratio and do not cause layout shift"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a “WhatsApp Order” button for each product that opens WhatsApp using a wa.me link with a pre-filled English message including the product name and price, and uses a configurable business WhatsApp/phone number.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "- WhatsApp order button for each product"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each product card/details view includes a clearly labeled “WhatsApp Order” button",
+        "Clicking the button opens a wa.me link with a prefilled message that includes the product name and price",
+        "The WhatsApp/phone number is configurable in one obvious place (e.g., a single config constant) without code changes across multiple files"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create an “Offers” section and a “New Arrivals” section that show relevant products (or dedicated items) and are accessible from navigation and/or the Home screen.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "- Offers and new arrivals section"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can access both “Offers” and “New Arrivals” from the app navigation (and/or clear Home shortcuts)",
+        "Each section displays items with at least image, name, and price, and can link back to the same product details experience as the catalog",
+        "Seed data includes at least one Offer item and one New Arrival item"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create a Contact page that shows a phone number and a location (as text) and provides tap-friendly actions (e.g., click-to-call and an external maps link). Keep all user-facing text in English.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "- Contact page with phone number and location",
+          "Use English for any user-facing text in the build request."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact page shows a phone number and a location string",
+        "Phone number is tappable (tel: link) on mobile",
+        "Location includes an external link that opens a maps site in a new tab/window",
+        "Phone number and location are stored in a single configurable place (constants/config)"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Apply a simple, elegant Indian design theme suitable for Indian women, using a cohesive color palette (avoid blue/purple), typography, and UI components consistently across all screens.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "- Simple, elegant Indian design theme",
+          "Target users: Indian women"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Consistent theme across Home, Catalog, Offers/New Arrivals, and Contact screens",
+        "Palette and styling feel “Indian/elegant” (e.g., warm neutrals with maroon/gold accents) without reducing readability",
+        "All primary actions (especially WhatsApp Order) have a clear visual hierarchy and accessible contrast"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Persist and serve catalog/products (including offer/new-arrival markers) from the single Motoko backend actor, and fetch them from the frontend using React Query.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "- Saree catalog with image, name, price, fabric, occasion",
+          "- Offers and new arrivals section"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend exposes query methods to list all products and to list/filter by Offers and New Arrivals (or exposes fields that allow the frontend to filter reliably)",
+        "Frontend loads catalog data via React Query and renders loading/empty states",
+        "App functions end-to-end with seeded backend data without requiring manual data entry"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add generated static brand/product placeholder images into the app and render them from the frontend as static assets (do not serve images through the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Make the app beginner-friendly and lightweight."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images are added under frontend/public/assets/generated and are referenced by the UI",
+        "Catalog items use the generated placeholder product images by default",
+        "No backend endpoints are created to serve image bytes"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use the pre-injected React + TypeScript frontend with Tailwind, shadcn/ui composition, and React Query.",
+    "Backend must remain a single Motoko actor (all logic in backend/main.mo); only add migration.mo if state upgrades require it.",
+    "Do not edit frontend immutable paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui."
+  ],
+  "nonGoals": [
+    "Online payments/checkout",
+    "User accounts beyond Internet Identity (no third-party auth)",
+    "Admin dashboard for managing inventory",
+    "Order tracking, notifications, or real-time chat",
+    "External databases or third-party backends",
+    "Multi-language UI (keep user-facing text in English)"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Minimal elegant logo with a gold and maroon motif, no text (suvarna-logo.dim_512x512.png)",
+      "Subtle Indian textile pattern background, warm neutral tones (textile-pattern.dim_1440x2560.png)",
+      "Square product placeholder image resembling a folded saree on a neutral background (saree-placeholder-1.dim_800x800.png)",
+      "Square product placeholder image with a different saree colorway on a neutral background (saree-placeholder-2.dim_800x800.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [
+      "Build a simple Android-first saree selling app for Suvarna Collection with a catalog, offers/new arrivals, contact info, and WhatsApp ordering"
+    ],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "Prefer lightweight, beginner-friendly UX and an elegant Indian visual theme; use English UI text"
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

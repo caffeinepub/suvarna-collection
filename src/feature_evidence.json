@@ -1,0 +1,170 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-an-android-first-lightweight-beginner-friendly-mobile-web-app-ui-for-the-saree-business-named-suvarna-collection-including-a-home-screen-that-shows-the-business-name-and-an-english-tagline",
+      "featureTitle": "Create an Android-first, lightweight, beginner-friendly mobile web app UI for the saree business named “Suvarna Collection”, including a Home screen that shows the business name and an English tagline.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/BottomNav.tsx",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-saree-catalog-screen-that-lists-products-with-image-name-price-fabric-and-occasion-and-supports-opening-a-product-details-view-or-an-expanded-card-for-each-product",
+      "featureTitle": "Implement a Saree Catalog screen that lists products with: image, name, price, fabric, and occasion, and supports opening a Product Details view (or an expanded card) for each product.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/SareeCard.tsx",
+        "frontend/src/pages/Catalog.tsx",
+        "frontend/src/pages/ProductDetails.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-whatsapp-order-button-for-each-product-that-opens-whatsapp-using-a-wa-me-link-with-a-pre-filled-english-message-including-the-product-name-and-price-and-uses-a-configurable-business-whatsapp-phone-number",
+      "featureTitle": "Add a “WhatsApp Order” button for each product that opens WhatsApp using a wa.me link with a pre-filled English message including the product name and price, and uses a configurable business WhatsApp/phone number.",
+      "files": [
+        "frontend/src/appConfig.ts",
+        "frontend/src/components/SareeCard.tsx",
+        "frontend/src/components/WhatsAppOrderButton.tsx",
+        "frontend/src/pages/ProductDetails.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-offers-section-and-a-new-arrivals-section-that-show-relevant-products-or-dedicated-items-and-are-accessible-from-navigation-and-or-the-home-screen",
+      "featureTitle": "Create an “Offers” section and a “New Arrivals” section that show relevant products (or dedicated items) and are accessible from navigation and/or the Home screen.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/Home.tsx",
+        "frontend/src/pages/NewArrivals.tsx",
+        "frontend/src/pages/Offers.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-contact-page-that-shows-a-phone-number-and-a-location-as-text-and-provides-tap-friendly-actions-e-g-click-to-call-and-an-external-maps-link-keep-all-user-facing-text-in-english",
+      "featureTitle": "Create a Contact page that shows a phone number and a location (as text) and provides tap-friendly actions (e.g., click-to-call and an external maps link). Keep all user-facing text in English.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/appConfig.ts",
+        "frontend/src/pages/Contact.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-simple-elegant-indian-design-theme-suitable-for-indian-women-using-a-cohesive-color-palette-avoid-blue-purple-typography-and-ui-components-consistently-across-all-screens",
+      "featureTitle": "Apply a simple, elegant Indian design theme suitable for Indian women, using a cohesive color palette (avoid blue/purple), typography, and UI components consistently across all screens.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-persist-and-serve-catalog-products-including-offer-new-arrival-markers-from-the-single-motoko-backend-actor-and-fetch-them-from-the-frontend-using-react-query",
+      "featureTitle": "Persist and serve catalog/products (including offer/new-arrival markers) from the single Motoko backend actor, and fetch them from the frontend using React Query.",
+      "files": [
+        "frontend/src/hooks/useSarees.ts",
+        "frontend/src/pages/Catalog.tsx",
+        "frontend/src/pages/NewArrivals.tsx",
+        "frontend/src/pages/Offers.tsx",
+        "frontend/src/pages/ProductDetails.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-generated-static-brand-product-placeholder-images-into-the-app-and-render-them-from-the-frontend-as-static-assets-do-not-serve-images-through-the-backend",
+      "featureTitle": "Add generated static brand/product placeholder images into the app and render them from the frontend as static assets (do not serve images through the backend).",
+      "files": [
+        "frontend/src/components/SareeCard.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

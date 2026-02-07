@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build a simple, beginner-friendly, lightweight Android-first mobile app for a home-based saree business (Suvarna Collection) targeting Indian women, featuring a catalog with WhatsApp ordering, offers/new arrivals, and contact info in an elegant Indian design theme.",
+  "architectural_notes": [
+    "Android-first lightweight mobile app; prioritize simple, beginner-friendly UX"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimal elegant logo with a gold and maroon motif, no text (suvarna-logo.dim_512x512.png)\n- Subtle Indian textile pattern background, warm neutral tones (textile-pattern.dim_1440x2560.png)\n- Square product placeholder image resembling a folded saree on a neutral background (saree-placeholder-1.dim_800x800.png)\n- Square product placeholder image with a different saree colorway on a neutral background (saree-placeholder-2.dim_800x800.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-an-android-first-lightweight-beginner-friendly-mobile-web-app-ui-for-the-saree-business-named-suvarna-collection-including-a-home-screen-that-shows-the-business-name-and-an-english-tagline",
+      "title": "Create an Android-first, lightweight, beginner-friendly mobile web app UI for the saree business named “Suvarna Collection”, including a Home screen that shows the business name and an English tagline.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-saree-catalog-screen-that-lists-products-with-image-name-price-fabric-and-occasion-and-supports-opening-a-product-details-view-or-an-expanded-card-for-each-product",
+      "title": "Implement a Saree Catalog screen that lists products with: image, name, price, fabric, and occasion, and supports opening a Product Details view (or an expanded card) for each product.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-whatsapp-order-button-for-each-product-that-opens-whatsapp-using-a-wa-me-link-with-a-pre-filled-english-message-including-the-product-name-and-price-and-uses-a-configurable-business-whatsapp-phone-number",
+      "title": "Add a “WhatsApp Order” button for each product that opens WhatsApp using a wa.me link with a pre-filled English message including the product name and price, and uses a configurable business WhatsApp/phone number.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-offers-section-and-a-new-arrivals-section-that-show-relevant-products-or-dedicated-items-and-are-accessible-from-navigation-and-or-the-home-screen",
+      "title": "Create an “Offers” section and a “New Arrivals” section that show relevant products (or dedicated items) and are accessible from navigation and/or the Home screen.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-contact-page-that-shows-a-phone-number-and-a-location-as-text-and-provides-tap-friendly-actions-e-g-click-to-call-and-an-external-maps-link-keep-all-user-facing-text-in-english",
+      "title": "Create a Contact page that shows a phone number and a location (as text) and provides tap-friendly actions (e.g., click-to-call and an external maps link). Keep all user-facing text in English.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-simple-elegant-indian-design-theme-suitable-for-indian-women-using-a-cohesive-color-palette-avoid-blue-purple-typography-and-ui-components-consistently-across-all-screens",
+      "title": "Apply a simple, elegant Indian design theme suitable for Indian women, using a cohesive color palette (avoid blue/purple), typography, and UI components consistently across all screens.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-persist-and-serve-catalog-products-including-offer-new-arrival-markers-from-the-single-motoko-backend-actor-and-fetch-them-from-the-frontend-using-react-query",
+      "title": "Persist and serve catalog/products (including offer/new-arrival markers) from the single Motoko backend actor, and fetch them from the frontend using React Query.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-brand-product-placeholder-images-into-the-app-and-render-them-from-the-frontend-as-static-assets-do-not-serve-images-through-the-backend",
+      "title": "Add generated static brand/product placeholder images into the app and render them from the frontend as static assets (do not serve images through the backend).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Home screen showing business name (Suvarna Collection) and a tagline",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Saree catalog with product fields (image, name, price, fabric, occasion)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "WhatsApp order button for each product in the catalog",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Offers and New Arrivals section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Contact page with phone number and location",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Simple, elegant Indian design theme optimized for Indian women; lightweight/beginner-friendly UX",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Suvarna Collection",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

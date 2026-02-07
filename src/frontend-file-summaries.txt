@@ -1,0 +1,17 @@
+{
+  "frontend/src/index.css": "Global styles with warm Indian-themed OKLCH color palette (maroon/gold accents), subtle textile background pattern, and custom scrollbar styling for both light and dark modes.",
+  "frontend/tailwind.config.js": "Extended Tailwind configuration with custom color tokens, elegant shadow utilities, Inter font family, and fade-in animation for the Indian-themed design system.",
+  "frontend/src/appConfig.ts": "Central configuration module storing business details (name, tagline) and contact information (WhatsApp, phone, location) with helper function to generate WhatsApp order links.",
+  "frontend/src/hooks/useSarees.ts": "React Query hooks for fetching sarees data from backend (all sarees, offers, new arrivals, and individual saree by ID) with proper loading states.",
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, defining all routes (home, catalog, product details, offers, new arrivals, contact) and layout with bottom navigation.",
+  "frontend/src/components/BottomNav.tsx": "Fixed bottom navigation bar with five tabs (Home, Catalog, Offers, New, Contact) featuring icons and active state highlighting for mobile-first navigation.",
+  "frontend/src/components/WhatsAppOrderButton.tsx": "Reusable WhatsApp order button component that opens wa.me link with pre-filled product details message in two size variants (default and large).",
+  "frontend/src/components/SareeCard.tsx": "Product card component displaying saree image, name, price, fabric, occasion, badges (offer/new), and WhatsApp order button with click-to-details navigation.",
+  "frontend/src/components/LoadingGrid.tsx": "Skeleton loading component showing animated placeholder grid for catalog/list pages during data fetch.",
+  "frontend/src/pages/Home.tsx": "Home page with business branding (logo, name, tagline), four quick-action shortcuts to main sections, welcome message, and footer attribution.",
+  "frontend/src/pages/Catalog.tsx": "Full catalog page displaying all sarees in responsive grid with loading, error, and empty states.",
+  "frontend/src/pages/ProductDetails.tsx": "Detailed product view showing large image, full specifications, badges, description, and prominent WhatsApp order button with back navigation.",
+  "frontend/src/pages/Offers.tsx": "Special offers page displaying filtered sarees marked as offers with dedicated header and empty state messaging.",
+  "frontend/src/pages/NewArrivals.tsx": "New arrivals page displaying filtered sarees marked as new with dedicated header and empty state messaging.",
+  "frontend/src/pages/Contact.tsx": "Contact page with tap-friendly buttons for WhatsApp, phone call, and location map, plus business information section and footer."
+}

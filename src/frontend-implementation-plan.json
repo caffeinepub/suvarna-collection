@@ -1,0 +1,261 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Suvarna Collection saree catalog (mobile-first) with WhatsApp ordering",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build an Android-first, lightweight Home screen with clear branding and obvious navigation.",
+      "acceptanceCriteria": [
+        "On mobile widths, the Home screen loads quickly and clearly shows “Suvarna Collection” and a tagline in English",
+        "Layout uses mobile-first spacing, readable font sizes, and large tap targets",
+        "Navigation to the other sections is obvious and usable with one hand"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app shell with mobile-first routing and a persistent one-hand-friendly navigation structure (e.g., bottom navigation) that links to Home, Catalog, Offers, New Arrivals, and Contact. Use shadcn/ui layout-friendly primitives where applicable (e.g., Card, Button). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "create",
+          "description": "Implement the Home screen showing the business name “Suvarna Collection” and an English tagline, plus clear shortcuts/links to Catalog, Offers, New Arrivals, and Contact. Use shadcn/ui Button/Card for tap-friendly shortcuts. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/BottomNav.tsx",
+          "operation": "create",
+          "description": "Add a mobile-first bottom navigation component with large tap targets and clear labels/icons (if available) to support one-handed navigation. Use shadcn/ui Button for consistent interactive styling. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement a Saree Catalog listing with product cards and a Product Details view.",
+      "acceptanceCriteria": [
+        "Catalog displays at least a small seeded set of products containing all required fields (image, name, price, fabric, occasion)",
+        "Each product can be opened to view its details without losing the ability to return to the catalog",
+        "Images are displayed with consistent aspect ratio and do not cause layout shift"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Catalog.tsx",
+          "operation": "create",
+          "description": "Create the Catalog screen that renders a scrollable list/grid of sarees with image, name, price, fabric, and occasion; include loading/empty states and navigation into a product details route. Use shadcn/ui Card/Skeleton to keep UI consistent. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetails.tsx",
+          "operation": "create",
+          "description": "Create a Product Details view (route-based) that shows a single product’s full details and supports returning to the catalog without losing context. Use shadcn/ui components (Card, Badge, Button) for consistent presentation. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/SareeCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable product card component displaying consistent-aspect image (prevent layout shift), name, price, fabric, occasion, and quick actions (including WhatsApp Order). Use shadcn/ui Card and Button. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire Catalog and Product Details routes into the router and ensure navigation works end-to-end from Home and bottom navigation. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add a per-product WhatsApp Order action using configurable wa.me link and prefilled English message.",
+      "acceptanceCriteria": [
+        "Each product card/details view includes a clearly labeled “WhatsApp Order” button",
+        "Clicking the button opens a wa.me link with a prefilled message that includes the product name and price",
+        "The WhatsApp/phone number is configurable in one obvious place (e.g., a single config constant) without code changes across multiple files"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/appConfig.ts",
+          "operation": "create",
+          "description": "Add a single, obvious configuration module that stores the business WhatsApp/phone number used for wa.me links (and can also hold contact info used elsewhere)."
+        },
+        {
+          "path": "frontend/src/components/WhatsAppOrderButton.tsx",
+          "operation": "create",
+          "description": "Implement a reusable “WhatsApp Order” button that builds a wa.me URL using the configured number and a prefilled English message including product name and price; use shadcn/ui Button for consistent primary action styling. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/SareeCard.tsx",
+          "operation": "modify",
+          "description": "Add the WhatsAppOrderButton to each product card and ensure the label is clearly visible and tap-friendly. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetails.tsx",
+          "operation": "modify",
+          "description": "Add the WhatsAppOrderButton to the product details view as the primary action, ensuring clear visual hierarchy and mobile-friendly placement. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Create Offers and New Arrivals sections accessible via navigation and linked to the shared product details experience.",
+      "acceptanceCriteria": [
+        "Users can access both “Offers” and “New Arrivals” from the app navigation (and/or clear Home shortcuts)",
+        "Each section displays items with at least image, name, and price, and can link back to the same product details experience as the catalog",
+        "Seed data includes at least one Offer item and one New Arrival item"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Offers.tsx",
+          "operation": "create",
+          "description": "Create an Offers screen that lists offer-marked products with image, name, and price; reuse SareeCard and link into the existing Product Details view. Use shadcn/ui components for consistent layout. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/NewArrivals.tsx",
+          "operation": "create",
+          "description": "Create a New Arrivals screen that lists new-arrival-marked products with image, name, and price; reuse SareeCard and link into the existing Product Details view. Use shadcn/ui components for consistent layout. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire Offers and New Arrivals routes into the router and ensure they are reachable from navigation and/or Home shortcuts. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Add prominent Home shortcuts/sections that navigate to Offers and New Arrivals without adding extra top-level pages beyond the required ones. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add a Contact page with configurable phone/location and tap-friendly call/maps actions in English.",
+      "acceptanceCriteria": [
+        "Contact page shows a phone number and a location string",
+        "Phone number is tappable (tel: link) on mobile",
+        "Location includes an external link that opens a maps site in a new tab/window",
+        "Phone number and location are stored in a single configurable place (constants/config)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "create",
+          "description": "Create a Contact page that reads phone number and location from the single config module, renders a tel: link, and provides an external maps link that opens in a new tab/window. Use shadcn/ui Button/Card for tap-friendly actions. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/appConfig.ts",
+          "operation": "modify",
+          "description": "Add/confirm contact configuration values (phone number and location text + maps URL) alongside the WhatsApp configuration so all contact details are configured in one place."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add Contact route wiring and include Contact in the primary navigation. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Apply a cohesive, elegant Indian theme (warm neutrals with maroon/gold accents; avoid blue/purple) across all screens.",
+      "acceptanceCriteria": [
+        "Consistent theme across Home, Catalog, Offers/New Arrivals, and Contact screens",
+        "Palette and styling feel “Indian/elegant” (e.g., warm neutrals with maroon/gold accents) without reducing readability",
+        "All primary actions (especially WhatsApp Order) have a clear visual hierarchy and accessible contrast"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Define global styles and theme tokens (CSS variables used by Tailwind/shadcn) using warm neutral background with maroon/gold accents; ensure readable typography and accessible contrast; keep styles lightweight and consistent."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply the global theme consistently via shared layout wrappers (background, spacing, typography), ensuring primary actions (WhatsApp Order) are visually prominent across screens. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust/extend Tailwind theme configuration only as needed to support the warm neutral + maroon/gold palette and consistent radii/shadows, avoiding blue/purple accents."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Fetch catalog/products from the backend actor using React Query and render loading/empty states.",
+      "acceptanceCriteria": [
+        "Backend exposes query methods to list all products and to list/filter by Offers and New Arrivals (or exposes fields that allow the frontend to filter reliably)",
+        "Frontend loads catalog data via React Query and renders loading/empty states",
+        "App functions end-to-end with seeded backend data without requiring manual data entry"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useSarees.ts",
+          "operation": "create",
+          "description": "Create React Query hooks that use the existing useActor hook to fetch sarees (all, offers, new arrivals, and single by id) and provide loading/error/empty states to screens."
+        },
+        {
+          "path": "frontend/src/pages/Catalog.tsx",
+          "operation": "modify",
+          "description": "Replace any local listing logic with React Query-driven data from useSarees; show lightweight loading skeletons and an empty-state message if no products are returned. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/Offers.tsx",
+          "operation": "modify",
+          "description": "Load offer items using React Query (or reliably filter by isOffer) and render loading/empty states; reuse the shared product card/details navigation. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/NewArrivals.tsx",
+          "operation": "modify",
+          "description": "Load new arrivals using React Query (or reliably filter by isNewArrival) and render loading/empty states; reuse the shared product card/details navigation. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetails.tsx",
+          "operation": "modify",
+          "description": "Fetch a single product by id using React Query and render loading/error states with a clear back path to the prior list screen. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add generated static brand/product placeholder images as frontend public assets and render them in the UI.",
+      "acceptanceCriteria": [
+        "Generated images are added under frontend/public/assets/generated and are referenced by the UI",
+        "Catalog items use the generated placeholder product images by default",
+        "No backend endpoints are created to serve image bytes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/suvarna-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated static image asset at frontend/public/assets/generated/suvarna-logo.dim_512x512.png and reference it from the Home/app shell branding."
+        },
+        {
+          "path": "frontend/public/assets/generated/textile-pattern.dim_1440x2560.png",
+          "operation": "create",
+          "description": "Add the generated static image asset at frontend/public/assets/generated/textile-pattern.dim_1440x2560.png and use it as a subtle background (without hurting readability/performance)."
+        },
+        {
+          "path": "frontend/public/assets/generated/saree-placeholder-1.dim_800x800.png",
+          "operation": "create",
+          "description": "Add the generated static image asset at frontend/public/assets/generated/saree-placeholder-1.dim_800x800.png and use it as a default product placeholder image."
+        },
+        {
+          "path": "frontend/public/assets/generated/saree-placeholder-2.dim_800x800.png",
+          "operation": "create",
+          "description": "Add the generated static image asset at frontend/public/assets/generated/saree-placeholder-2.dim_800x800.png and use it as an alternate product placeholder image for visual variety."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Wire the generated logo image (frontend/public/assets/generated/suvarna-logo.dim_512x512.png) into the Home branding area while keeping the UI lightweight and mobile-first. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Reference the generated textile background image (frontend/public/assets/generated/textile-pattern.dim_1440x2560.png) in global styling in a subtle, performant way."
+        },
+        {
+          "path": "frontend/src/components/SareeCard.tsx",
+          "operation": "modify",
+          "description": "Ensure product images default to the generated saree placeholders (frontend/public/assets/generated/saree-placeholder-1.dim_800x800.png and frontend/public/assets/generated/saree-placeholder-2.dim_800x800.png) when a product imageUrl is missing/empty, and enforce consistent aspect ratio to prevent layout shift. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}
